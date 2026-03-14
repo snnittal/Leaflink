@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { api } from "../api/client";
 import PostCard from "../components/PostCard";
 import logger from "../logger";
+import PageLayout from "../components/PageLayout";
 
 type Book = {
   _id: string;
@@ -70,7 +71,7 @@ const BookPage: React.FC = () => {
   if (!book) return <div className="error">Book not found</div>;
 
   return (
-    <div className="page">
+    <PageLayout>
       {/* Book Header */}
       <div className="book-header">
         <div className="book-cover-section">
@@ -148,7 +149,7 @@ const BookPage: React.FC = () => {
           </div>
         </div>
       )}
-    </div>
+    </PageLayout>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../api/client";
+import PageLayout from "../components/PageLayout";
 
 const AdminPage: React.FC = () => {
   // Book form state
@@ -61,8 +62,9 @@ const AdminPage: React.FC = () => {
   };
 
   return (
-    <div style={{ maxWidth: 800, margin: "16px auto", padding: "0 8px" }}>
-      <h2>Admin Panel</h2>
+    <PageLayout>
+      <div style={{ maxWidth: 800, margin: "16px auto", padding: "0 8px" }}>
+        <h2>Admin Panel</h2>
 
       {/* Create Book */}
       <section style={{ marginTop: 16, marginBottom: 24 }}>
@@ -157,7 +159,8 @@ const AdminPage: React.FC = () => {
           )}
         </form>
       </section>
-    </div>
+      </div>
+    </PageLayout>
   );
 };
 

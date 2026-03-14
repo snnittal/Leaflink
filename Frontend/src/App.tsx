@@ -25,7 +25,7 @@ const App: React.FC = () => {
         <Route path="/clubs" element={<ClubsPage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/" element={<Navigate to={user ? "/feed" : "/login"} />} />
+        <Route path="/" element={<Navigate to="/feed" />} />
       </Routes>
     </div>
   );

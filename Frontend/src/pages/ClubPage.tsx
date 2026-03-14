@@ -4,6 +4,7 @@ import { api } from "../api/client";
 import { io, Socket } from "socket.io-client";
 import { useAuth } from "../context/AuthContext";
 import logger from "../logger";
+import PageLayout from "../components/PageLayout";
 
 type Club = {
   _id: string;
@@ -303,7 +304,7 @@ const ClubPage: React.FC = () => {
   if (!club) return <div style={{ padding: 16 }}>Loading...</div>;
 
   return (
-    <div className="page">
+    <PageLayout>
       {!club ? (
         <div className="loading">Loading club...</div>
       ) : (
@@ -629,7 +630,7 @@ const ClubPage: React.FC = () => {
           </div>
         </div>
       )}
-    </div>
+    </PageLayout>
   );
 };
 

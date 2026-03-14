@@ -10,14 +10,14 @@ const Navbar: React.FC = () => {
       <div className="navbar-content">
         <Link to="/" className="navbar-brand">
           <img
-            src={import.meta.env.BASE_URL + "GeminiLeaflinkLogov2.png"}
+            src="/GeminiLeaflinkLogov2.png"
             alt="LeafLink Logo"
             className="navbar-logo"
           />
           LeafLink
         </Link>
         <div className="navbar-links">
-          <Link to="/" className="navbar-link">
+          <Link to="/feed" className="navbar-link">
             Feed
           </Link>
           <Link to="/admin" className="navbar-link">

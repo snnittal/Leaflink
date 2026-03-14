@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { api } from "../api/client";
 import { useAuth } from "../context/AuthContext";
 import logger from "../logger";
+import PageLayout from "../components/PageLayout";
 
 type Book = {
   _id: string;
@@ -65,17 +66,20 @@ const ProfilePage: React.FC = () => {
 
   if (loading || !overview) {
     return (
-      <div style={{ maxWidth: 900, margin: "16px auto", padding: "0 8px" }}>
-        <h2>Profile</h2>
-        <div>Loading...</div>
-      </div>
+      <PageLayout>
+        <div style={{ maxWidth: 900, margin: "16px auto", padding: "0 8px" }}>
+          <h2>Profile</h2>
+          <div>Loading...</div>
+        </div>
+      </PageLayout>
     );
   }
 
   const { user, posts, likedBooks, clubs } = overview;
 
   return (
-    <div style={{ maxWidth: 900, margin: "16px auto", padding: "0 8px" }}>
+    <PageLayout>
+      <div style={{ maxWidth: 900, margin: "16px auto", padding: "0 8px" }}>
       {/* Header */}
       <div
         style={{
@@ -260,7 +264,8 @@ const ProfilePage: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </PageLayout>
   );
 };
 

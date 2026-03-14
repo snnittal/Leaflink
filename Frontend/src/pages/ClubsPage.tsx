@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../api/client";
 import logger from "../logger";
+import PageLayout from "../components/PageLayout";
 
 type Club = {
   _id: string;
@@ -40,7 +41,7 @@ const ClubsPage: React.FC = () => {
   };
 
   return (
-    <div className="page">
+    <PageLayout>
       <h2 className="page-title">Clubs</h2>
 
       <form
@@ -106,7 +107,7 @@ const ClubsPage: React.FC = () => {
           ))}
         </div>
       )}
-    </div>
+    </PageLayout>
   );
 };
 

@@ -140,7 +140,6 @@ body {
 .navbar-logo {
   height: 32px;
   width: auto;
-  filter: brightness(0) invert(1); /* Make it white to match dark theme */
 }
 
 .navbar-links {
@@ -346,6 +345,16 @@ body {
 
   .card {
     padding: 1rem;
+  }
+
+  .three-column-layout {
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+  }
+
+  .three-col-left,
+  .three-col-right {
+    width: 100%;
   }
 
   .reddit-layout {

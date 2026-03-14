@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import logger from "../logger";
+import PageLayout from "../components/PageLayout";
 
 const LoginPage: React.FC = () => {
   const { login, register } = useAuth();
@@ -32,16 +33,17 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div
-      className="page"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div className="card" style={{ width: "320px" }}>
+    <PageLayout>
+      <div
+        className="page"
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div className="card" style={{ width: "320px" }}>
         <h2 className="card-title" style={{ textAlign: "center" }}>
           LeafLink
         </h2>
@@ -131,6 +133,7 @@ const LoginPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </PageLayout>
   );
 };
 
