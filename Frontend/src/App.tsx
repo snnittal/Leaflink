@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import AdminPage from "./pages/AdminPage";
 import ClubsPage from "./pages/ClubsPage";
 import ProfilePage from "./pages/ProfilePage";
+import ExploreBooksPage from "./pages/ExploreBooksPage";
 // import Sidebar from "./components/Sidebar"; // Uncomment if Sidebar is used
 
 const App: React.FC = () => {
@@ -20,6 +21,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/feed" element={<FeedPage />} />
+        <Route path="/explore" element={<ExploreBooksPage />} />
         <Route path="/books/:id" element={<BookPage />} />
         <Route path="/clubs/:id" element={<ClubPage />} />
         <Route path="/clubs" element={<ClubsPage />} />

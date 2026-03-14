@@ -20,16 +20,30 @@ const Navbar: React.FC = () => {
           <Link to="/feed" className="navbar-link">
             Feed
           </Link>
+          <Link to="/explore" className="navbar-link">
+            Explore Books
+          </Link>
           <Link to="/admin" className="navbar-link">
             Admin
           </Link>
           <Link to="/clubs" className="navbar-link">
             Clubs
           </Link>
-          <span className="navbar-user">Hi, {user?.name}</span>
-          <button onClick={logout} className="navbar-button">
-            Logout
-          </button>
+          {user ? (
+            <>
+              <Link to="/profile" className="navbar-link">
+                Profile
+              </Link>
+              <span className="navbar-user">Hi, {user.name}</span>
+              <button onClick={logout} className="navbar-button">
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to="/login" className="navbar-link">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </nav>

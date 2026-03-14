@@ -23,6 +23,11 @@ type PostCardProps = {
   book: { _id: string; title: string; author: string; coverUrl?: string };
   likesCount: number;
   onLike: () => void;
+  type?: "text" | "video";
+  videoUrl?: string;
+  thumbnailUrl?: string;
+  durationSeconds?: number;
+  textSummary?: string;
 };
 
 const PostCard: React.FC<PostCardProps> = ({
@@ -34,6 +39,11 @@ const PostCard: React.FC<PostCardProps> = ({
   book,
   likesCount,
   onLike,
+  type,
+  videoUrl,
+  thumbnailUrl,
+  durationSeconds,
+  textSummary,
 }) => {
   const { user: currentUser } = useAuth();
   if (!book) return null;
@@ -210,9 +220,39 @@ const PostCard: React.FC<PostCardProps> = ({
           <strong>{displayUserName}</strong> on{" "}
           <Link to={`/books/${book._id}`}>{book.title}</Link>
         </div>
-        <div style={{ fontSize: 13, color: "#555", marginBottom: 4 }}>
-          {content}
-        </div>
+        {type === "video" && videoUrl ? (
+          <>
+            <div style={{ marginBottom: 4 }}>
+              <video
+                src={videoUrl}
+                controls
+                muted
+                playsInline
+                style={{
+                  width: "100%",
+                  maxHeight: 320,
+                  borderRadius: 8,
+                  backgroundColor: "#000",
+                }}
+                poster={thumbnailUrl}
+              />
+            </div>
+            {(textSummary || content) && (
+              <div style={{ fontSize: 13, color: "#555", marginBottom: 4 }}>
+                {textSummary || content}
+              </div>
+            )}
+            {durationSeconds !== undefined && (
+              <div style={{ fontSize: 11, color: "#888", marginBottom: 4 }}>
+                ~{Math.round(durationSeconds)}s video reaction
+              </div>
+            )}
+          </>
+        ) : (
+          <div style={{ fontSize: 13, color: "#555", marginBottom: 4 }}>
+            {content}
+          </div>
+        )}
         {rating !== undefined && (
           <div style={{ fontSize: 12, marginBottom: 4 }}>
             Rating: {rating}/5

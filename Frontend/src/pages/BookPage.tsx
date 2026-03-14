@@ -21,6 +21,11 @@ type Post = {
   user: { name: string };
   book: { _id: string; title: string; author: string; coverUrl?: string };
   likes: string[];
+  type?: "text" | "video";
+  videoUrl?: string;
+  thumbnailUrl?: string;
+  durationSeconds?: number;
+  textSummary?: string;
 };
 
 const BookPage: React.FC = () => {
@@ -111,6 +116,11 @@ const BookPage: React.FC = () => {
                 user={post.user}
                 book={post.book}
                 likesCount={post.likes.length}
+                type={post.type}
+                videoUrl={post.videoUrl}
+                thumbnailUrl={post.thumbnailUrl}
+                durationSeconds={post.durationSeconds}
+                textSummary={post.textSummary}
                 onLike={() => toggleLike(post._id)}
               />
             ))}

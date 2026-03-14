@@ -79,7 +79,16 @@ router.post(
     }
 
     try {
-      const { bookId, content, rating } = req.body;
+      const {
+        bookId,
+        content,
+        rating,
+        type,
+        videoUrl,
+        thumbnailUrl,
+        durationSeconds,
+        textSummary,
+      } = req.body;
       if (!req.userId) {
         return res.status(401).json({ message: "Not authenticated" });
       }
@@ -89,6 +98,11 @@ router.post(
         book: bookId,
         content,
         rating,
+        type: type === "video" ? "video" : "text",
+        videoUrl,
+        thumbnailUrl,
+        durationSeconds,
+        textSummary,
       });
 
       // Populate user + book on the created document
